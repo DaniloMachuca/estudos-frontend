@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./smaccs/base.css">
+    <link rel="stylesheet" href="./smaccs/layout.css">
+    <link rel="stylesheet" href="./smaccs/module.css">
+    <link rel="stylesheet" href="./smaccs/tema-a.css">
+    <link rel="stylesheet" href="./smaccs/tema-b.css">
+    <title>Document</title>
+</head>
+<body class="tema-a">
+    <header id="cabecalho">
+        <div class="container">
+            <h1 class="title">Nome do Site</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="">Home</a>
+                    </li>
+                    <li>
+                        <a href="">Produtos</a>
+                    </li>
+                    <li>
+                        <a href="">Contato</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="accordion">
+            <header class="accordion-header">
+                nome do accordion
+            </header>
+            <p class="accordion-content">Conteúdo</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="mensagem mensagem-is-error">
+                <h5 class="mensagem-titulo">Atenção</h5>
+                <p class="mensagem-texto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere atque ullam voluptatem numquam hic quas dolore quidem nostrum nihil nam quae doloribus voluptatibus ex rerum, unde iste doloremque ad vero?</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const accordions = document.querySelectorAll('.accordion-header');
+        for (let i =0; i < accordions.length; i++){
+            accordions[i].addEventListener('click',function(evento){
+                evento.target.parentNode.classList.toggle('is-open')
+
+                //if (evento.target.parentNode.classList.contains('is-open')){
+                    //evento.target.parentNode.classList.remove('is-open');
+                //} else{
+                    //evento.target.parentNode.classList.add('is-open');
+                //}
+            })
+        }
+    </script>
+</body>
+</html>

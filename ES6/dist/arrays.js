@@ -95,9 +95,36 @@ function verificaFullStack() {
 verificaFullStack();
 separaLinhas();
 
-//utilizando o "filter" para filtrar os items de um array que atendem a uma condição possuindo ou n um atributo com determinado valor
+//utilizando o "filter" para filtrar os items de um array que atendem a uma condição possuindo ou n um atributo com determinado valor, utilizando uma função própira de call back
 
-var alunosBackEnd = alunos2.filter(function (item) {
-  return item.curso == "Back-End";
-});
+function filtraAlunosDeBackend(aluno) {
+  return aluno.curso == "Back-End";
+}
+var alunosBackEnd = alunos2.filter(filtraAlunosDeBackend);
 console.log(alunosBackEnd);
+separaLinhas();
+
+//usando o reduce para reduzir o array para um valor
+var nums = [10, 20, 30, 10];
+var soma = nums.reduce(function (acumulador, itemAtual) {
+  acumulador += itemAtual;
+  return acumulador;
+}, 0);
+console.log(soma);
+separaLinhas();
+
+//somando arryas com o for
+
+var somaComFor = 0;
+for (var _i = 0; _i < nums.length; _i++) {
+  somaComFor += nums[_i];
+}
+console.log(somaComFor);
+separaLinhas();
+
+//reduce em uma string de arrays
+var nomesDosAlunos = alunos2.reduce(function (acumulador, itemAtual) {
+  acumulador += "".concat(itemAtual.nome, " ");
+  return acumulador;
+}, "");
+console.log(nomesDosAlunos);

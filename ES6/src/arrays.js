@@ -125,3 +125,36 @@ function filtraAlunosDeBackend(aluno) {
 const alunosBackEnd = alunos2.filter(filtraAlunosDeBackend);
 
 console.log(alunosBackEnd);
+
+separaLinhas();
+
+//usando o reduce para reduzir o array para um valor
+const nums = [10, 20, 30, 10];
+
+const soma = nums.reduce(function (acumulador, itemAtual) {
+  acumulador += itemAtual;
+  return acumulador;
+}, 0);
+
+console.log(soma);
+
+separaLinhas();
+
+//somando arryas com o for
+
+let somaComFor = 0;
+for (let i = 0; i < nums.length; i++) {
+  somaComFor += nums[i];
+}
+
+console.log(somaComFor);
+
+separaLinhas();
+
+//reduce em uma string de arrays
+const nomesDosAlunos = alunos2.reduce(function (acumulador, itemAtual) {
+  acumulador += `${itemAtual.nome} `;
+  return acumulador;
+}, "");
+
+console.log(nomesDosAlunos);

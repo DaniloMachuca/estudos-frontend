@@ -15,16 +15,26 @@ var retornaUmCarro = function retornaUmCarro() {
 };
 console.log(minhaFuncao());
 console.log(retornaUmCarro());
-var carro = {
-  velorcidadeAtual: 40,
-  acelerar: function acelerar() {
-    this.velorcidadeAtual += 10;
+
+//mostrando a diferença do conceito 'this' de uma arrow function
+var mostrarDiffFunctionEArrowFunction = {
+  atributo: "1",
+  funcao: function funcao() {
+    console.log(this);
   },
-  frear: function frear() {
-    _this.velorcidadeAtual -= 10;
+  arrowFunction: function arrowFunction() {
+    console.log(_this);
   }
 };
-carro.acelerar();
-console.log(carro.velorcidadeAtual);
-carro.frear();
-console.log(carro.velorcidadeAtual);
+
+//exemplo
+var carro = {
+  velocidadeAtual: 40,
+  acelerar: function acelerar() {
+    this.velocidadeAtual += 10;
+  },
+  //não funciona
+  frear: function frear() {
+    _this.velocidadeAtual -= 10;
+  }
+};

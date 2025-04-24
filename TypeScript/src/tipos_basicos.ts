@@ -29,3 +29,7 @@ dadosDaAPI = 10;
 dadosDaAPI = "string";
 dadosDaAPI = true;
 dadosDaAPI = [10, 20, 30];
+
+//tentando mudar o tipo de uma variável
+let curso = "Typescript";
+// curso = 111;

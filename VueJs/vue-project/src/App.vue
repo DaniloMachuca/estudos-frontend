@@ -1,47 +1,37 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+const nome = 'gian'
+const meuObj = {
+  nome: 'gian',
+  filmeFavorito: 'Rocky',
+}
+
+function dizOla(nome) {
+  return `${nome} diz oi`
+}
+
+const enderecoImgLink =
+  'https://upload.wikimedia.org/wikipedia/pt/1/10/Link_arte_Hyrule_Warriors_Age_of_Calamity.png'
+
+const enderecoImgZelda =
+  'https://upload.wikimedia.org/wikipedia/pt/7/7d/Princesa_Zelda_arte_Hyrule_Warriors_Age_of_Calamity.png'
+
+const botaoEstaDesabilitado = true
+
+const gostaDoLink = false
+const gostaDaZelda = false
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <h1>Olá {{ dizOla('Paula') }}</h1>
+  <img v-if="gostaDoLink" v-bind:src="enderecoImgLink" alt="capa de zelda" />
+  <img v-else-if="gostaDaZelda" :src="enderecoImgZelda" alt="" />
+  <h2 v-else>Não curte the legend of zelda</h2>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <button :disabled="botaoEstaDesabilitado">enviar msg</button>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+img {
+  width: 400px;
 }
 </style>

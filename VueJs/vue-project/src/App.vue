@@ -27,6 +27,8 @@ const estado = reactive({
   email: '',
   saldo: 5000,
   transferindo: 0,
+  nomes: ['gian', 'paula', 'luisa', 'monica'],
+  nomeAInserir: '',
 })
 
 function incrementar() {
@@ -48,6 +50,14 @@ function mostraSaldoFuturo() {
 function validarTransferencia() {
   const { saldo, transferindo } = estado
   return saldo >= transferindo
+}
+
+function cadastraNome() {
+  if (estado.nomeAInserir.length >= 3) {
+    estado.nomes.push(estado.nomeAInserir)
+  } else {
+    alert('nome muito curto')
+  }
 }
 </script>
 
@@ -92,6 +102,21 @@ function validarTransferencia() {
   <br />
   <button v-if="validarTransferencia()">Transferir</button>
   <span v-else>Valor insuficiente</span>
+
+  <br />
+  <hr />
+
+  <ul>
+    <li v-for="nome in estado.nomes">
+      {{ nome }}
+    </li>
+  </ul>
+  <input
+    @keyup="(event) => (estado.nomeAInserir = event.target.value)"
+    type="text"
+    placeholder="Digite um novo nome"
+  />
+  <button @click="cadastraNome()" type="button">Cadastrar nome</button>
 </template>
 
 <style scoped>

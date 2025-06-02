@@ -1,0 +1,20 @@
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.listItem {
+  list-style: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ItemName {
+  display: block;
+  margin-bottom: 16px;
+  text-decoration: none;
+  color: var(--corSecundaria);
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+}

@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+import styles from "./ReposList.module.css";
 
-const ReposList = () => {
+const ReposList = ({ nomeUsuario }) => {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://api.github.com/users/DaniloMachuca/repos")
+    setLoading(true);
+    fetch(`https://api.github.com/users/${nomeUsuario}/repos`)
       .then((response) => response.json())
       .then((data) => {
         setTimeout(() => {
@@ -13,21 +15,24 @@ const ReposList = () => {
           setRepos(data);
         }, 2000);
       });
-  }, []);
+  }, [nomeUsuario]);
 
   return (
-    <>
-      {loading && <p>Carregando...</p>}
-      <ul>
-        {repos.map(({ id, name, html_url }) => (
-          <li key={id}>
-            <a target="_blank" href={html_url}>
-              {name}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </>
+    <div className="container">
+      {loading ? (
+        <p>Carregando...</p>
+      ) : (
+        <ul className={styles.list}>
+          {repos.map(({ id, name, html_url }) => (
+            <li className={styles.listItem} key={id}>
+              <a className={styles.ItemName} target="_blank" href={html_url}>
+                {name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
 
